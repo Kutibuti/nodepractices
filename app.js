@@ -1,5 +1,10 @@
-const _ = require('lodash')
-const items = [1,[2,[[3,[4]]]]]
-const newItems = _.flattenDeep(items)
-console.log(newItems);
-console.log("Hello guys welcome");
+const http = require('http')
+const fs = require('fs')
+
+http.createServer(function (req, res) {
+    fs.createReadStream('./folder/big.txt',{encoding:'utf8'})
+    .on('data',(result) =>{
+        res.end(result)
+    })
+})
+.listen(3000)
